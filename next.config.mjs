@@ -19,9 +19,6 @@ const nextConfig = {
     ],
   },
   transpilePackages: ['@splinetool/react-spline', '@splinetool/runtime'],
-  experimental: {
-    esmExternals: 'loose',
-  },
   async headers() {
     return [
       {
