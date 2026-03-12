@@ -1,4 +1,4 @@
-declare module '@splinetool/react-spline/dist/react-spline.js' {
+declare module '@splinetool/react-spline' {
   const Spline: any;
   export default Spline;
 }
