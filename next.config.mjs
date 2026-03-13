@@ -19,6 +19,14 @@ const nextConfig = {
     ],
   },
   transpilePackages: ['@splinetool/react-spline', '@splinetool/runtime'],
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      // Force vercel to bypass package.json exports entirely and load the direct file it needs
+      '@splinetool/react-spline': '@splinetool/react-spline/dist/react-spline-next.js',
+    };
+    return config;
+  },
   async headers() {
     return [
       {
