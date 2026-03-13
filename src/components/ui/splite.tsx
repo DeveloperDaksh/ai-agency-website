@@ -3,8 +3,8 @@
 import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
 
-// Standard import path, transpilePackages in next.config.mjs handles the CJS/ESM interop
-const Spline = dynamic(() => import('@splinetool/react-spline').then(mod => mod.default || mod), {
+// Import specifically from /next as defined in react-spline's package.json exports for Next.js 14+
+const Spline = dynamic(() => import('@splinetool/react-spline/next').then(mod => mod.default || mod), {
   ssr: false,
   loading: () => (
     <div className="w-full h-full flex items-center justify-center">
