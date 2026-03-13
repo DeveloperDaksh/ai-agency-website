@@ -19,13 +19,6 @@ const nextConfig = {
     ],
   },
   transpilePackages: ['@splinetool/react-spline', '@splinetool/runtime'],
-  webpack: (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@splinetool/react-spline': '@splinetool/react-spline/dist/react-spline.js',
-    };
-    return config;
-  },
   async headers() {
     return [
       {
