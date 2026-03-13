@@ -3,9 +3,8 @@
 import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
 
-// Bypass the root package export entirely and directly import the underlying module.
-// Package.json for react-spline allows `"./*": "./*"` which makes this valid.
-const Spline = dynamic(() => import('@splinetool/react-spline/dist/react-spline.js'), {
+// Standard Next.js dynamic import (without .then chains to ensure bundler static analysis works)
+const Spline = dynamic(() => import('@splinetool/react-spline'), {
   ssr: false,
   loading: () => (
     <div className="w-full h-full flex items-center justify-center">
