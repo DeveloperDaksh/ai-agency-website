@@ -14,22 +14,52 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    text: "They didn't just automate our workflows — they reimagined them. We've saved 20+ hours per week and our team finally focuses on high-value work.",
+    text: "The app feels modern and intelligently structured, with great attention to detail. The developer did a fantastic job making the navigation clean and comfortable. The AI works fast and gives useful results.",
+    image: "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Semon Pithen",
+    role: "Repeat Client",
+  },
+  {
+    text: "Working with n8n automation was a positive experience. The project stayed organized, the workflow was clear, and the approach felt professional and thoughtful throughout.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Sarah Mitchell",
-    role: "Founder, DesignCo",
+    name: "Andreasesa",
+    role: "Automation Partner",
   },
   {
-    text: "The integration was seamless. Their team understood our needs from day one and delivered a system that exceeded every expectation we had.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Michael Chen",
-    role: "CEO, TechStart",
+    text: "The developer delivered solid automation that works consistently. Workflows are logical, triggers are accurate, and adjustments were implemented promptly. A stress-free experience.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Tin M. Brown",
+    role: "Project Manager",
   },
   {
-    text: "Best investment we've made this year. Our AI chatbot handles 70% of support tickets automatically — and customers love it even more than human agents.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Emma Rodriguez",
-    role: "Operations Director",
+    text: "Final result exceeded expectations. He delivered a powerful n8n automation workflow with a clean UI/UX structure that makes monitoring and updates very convenient.",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Isaac Ross",
+    role: "Business Owner",
+  },
+  {
+    text: "Genuinely pleased with how this automation project concluded. The specialist configured everything to handle exceptions gracefully, documented the logic clearly, and delivered workflows that continue performing consistently.",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Toril Glasswyn",
+    role: "Repeat Client",
+  },
+  {
+    text: "What stood out in the n8n project was how Islam listened before suggesting anything. The solution felt tailored rather than generic and that made a real difference in the final result.",
+    image: "https://images.unsplash.com/photo-1552058544-fe5c0655d93b?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Charles J. Lam",
+    role: "Systems Designer",
+  },
+  {
+    text: "Every step during this n8n project was communicated in plain language, progress was visible, and the final handover was clean. This is what a smooth automation experience looks like.",
+    image: "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Keith R. Cum",
+    role: "Project Lead",
+  },
+  {
+    text: "This specialist delivered exceptional n8n automation work. The processes now run automatically, error-free, and much faster than before.",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Kieran Lon",
+    role: "Operations Expert",
   },
 ];
 

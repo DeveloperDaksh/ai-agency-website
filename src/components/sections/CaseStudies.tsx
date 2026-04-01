@@ -3,36 +3,13 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import { TrendingUp, Clock, Sparkles, ExternalLink, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { GlowContainer } from "@/components/ui/glow-container";
 import { Button } from "@/components/ui/button";
+import { caseStudies } from "@/data/case-studies";
 
-const caseStudies = [
-  {
-    title: "AI-Powered Customer Service",
-    client: "Global Retail Co.",
-    metric: "85% Faster Response Time",
-    description: "Deployed a RAG-based AI agent that resolves 70% of inbound queries without human intervention — saving 2,000+ hours monthly.",
-    icon: TrendingUp,
-    color: "from-blue-500 to-cyan-500"
-  },
-  {
-    title: "Predictive Supply Chain",
-    client: "LogiTech Solutions",
-    metric: "30% Cost Reduction",
-    description: "Built an ML forecasting model that predicts inventory demand with 94% accuracy across 12 global warehouses.",
-    icon: Clock,
-    color: "from-orange-500 to-red-500"
-  },
-  {
-    title: "Automated Content Engine",
-    client: "MediaFlow Inc.",
-    metric: "5× Content Velocity",
-    description: "Created a generative AI pipeline that transforms raw video into social posts, blog articles, and email campaigns — autonomously.",
-    icon: Sparkles,
-    color: "from-purple-500 to-pink-500"
-  }
-];
+// Case studies are now imported from @/data/case-studies
 
 export const CaseStudies = () => {
   return (
@@ -74,10 +51,12 @@ export const CaseStudies = () => {
                   </p>
                 </div>
                 <div className="mt-auto p-8 pt-0">
-                  <Button variant="outline" className="w-full justify-between items-center px-6 rounded-2xl hover:bg-orange-500 hover:text-white transition-all border-orange-500/10">
-                    Read Case Study
-                    <ExternalLink className="w-4 h-4" />
-                  </Button>
+                  <Link href={`/success-stories/${study.slug}`} className="block w-full">
+                    <Button variant="outline" className="w-full justify-between items-center px-6 rounded-2xl hover:bg-orange-500 hover:text-white transition-all border-orange-500/10">
+                      Read Case Study
+                      <ExternalLink className="w-4 h-4" />
+                    </Button>
+                  </Link>
                 </div>
               </GlowContainer>
             </motion.div>
