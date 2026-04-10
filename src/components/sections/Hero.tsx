@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { Sparkles, ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -8,7 +9,11 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Spotlight } from "@/components/ui/spotlight";
 import { SplineScene } from "@/components/ui/splite";
-import { ParticleField } from "@/components/ui/ParticleField";
+
+const ParticleField = dynamic(() => import("@/components/ui/ParticleField").then(mod => mod.ParticleField), {
+  ssr: false,
+  loading: () => <div className="absolute inset-0 z-0" />
+});
 
 export const Hero = () => {
   return (
@@ -37,10 +42,15 @@ export const Hero = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               style={{ transform: "translateZ(30px)" }}
             >
-              <Badge className="mb-8 bg-orange-500/10 text-orange-600 border-orange-500/20 px-4 py-1.5">
-                <Sparkles className="w-3 h-3 mr-1.5" />
-                AI-Powered Growth Engine
-              </Badge>
+              <div className="flex items-center gap-3 mb-8 justify-center lg:justify-start">
+                <Badge className="bg-orange-500/10 text-orange-600 border-orange-500/20 px-4 py-1.5">
+                  <Sparkles className="w-3 h-3 mr-1.5" />
+                  The AI Innovation Lab
+                </Badge>
+                <Badge variant="outline" className="text-[10px] border-orange-500/20 text-orange-500/80 uppercase tracking-widest font-bold">
+                  Ships Daily
+                </Badge>
+              </div>
             </motion.div>
             
             <motion.h1
@@ -48,9 +58,9 @@ export const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.1 }}
               style={{ transform: "translateZ(50px)" }}
-              className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-8 bg-gradient-to-r from-foreground via-orange-500 to-foreground bg-clip-text text-transparent leading-[1.1] tracking-tight"
+              className="text-3xl sm:text-4xl lg:text-7xl font-bold mb-8 bg-gradient-to-r from-foreground via-orange-500 to-foreground bg-clip-text text-transparent leading-[1.1] tracking-tight"
             >
-              {"Intelligent AI. Seamlessly Stitched.".split(" ").map((word, i) => (
+              {"New AI Solutions. Every Single Day.".split(" ").map((word, i) => (
                 <motion.span
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
@@ -73,9 +83,9 @@ export const Hero = () => {
               animate={{ opacity: 1, z: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               style={{ transform: "translateZ(40px)" }}
-              className="text-lg sm:text-xl text-muted-foreground mb-10 leading-relaxed max-w-lg"
+              className="text-lg sm:text-xl text-muted-foreground mb-10 leading-relaxed max-w-lg mx-auto lg:mx-0 font-medium"
             >
-              We design and deploy custom AI systems that eliminate busywork, unlock insights, and accelerate revenue — so you can focus on what matters.
+              While others consult, we build. Deploy cutting-edge AI automation, intelligent chatbots, and custom software that transforms your operation in weeks, not months.
             </motion.p>
             
             <motion.div
@@ -83,19 +93,29 @@ export const Hero = () => {
               animate={{ opacity: 1, z: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
               style={{ transform: "translateZ(35px)" }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="flex flex-col items-center lg:items-start gap-6"
             >
-              <Link href="/contact">
-                <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white rounded-full px-8 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all">
-                  Book Strategy Call
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="/products">
-                <Button size="lg" variant="outline" className="rounded-full px-8 border-border/50 hover:border-orange-500/30">
-                  Search AI Tools
-                </Button>
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full">
+                <Link href="https://calendly.com/saraswatistitch">
+                  <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white rounded-2xl h-16 px-10 text-lg font-bold shadow-xl shadow-orange-500/25 hover:shadow-orange-500/40 transition-all group w-full sm:w-auto">
+                    Book Free 30-Min Strategy Call
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </Link>
+                <Link href="/products">
+                  <Button size="lg" variant="outline" className="rounded-2xl h-16 px-10 text-lg font-bold border-white/10 hover:bg-white/5 w-full sm:w-auto">
+                    Explore Daily Lab →
+                  </Button>
+                </Link>
+              </div>
+              
+              <div className="flex items-center gap-2 text-sm font-bold text-orange-500/80 animate-pulse">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+                </span>
+                LIMITED SPOTS: Only 2 remaining for April
+              </div>
             </motion.div>
           </motion.div>
 

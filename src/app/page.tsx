@@ -19,6 +19,11 @@ const Testimonials = dynamic(() => import("@/components/sections/Testimonials").
 const FAQ = dynamic(() => import("@/components/sections/FAQ").then(mod => mod.FAQ));
 const Contact = dynamic(() => import("@/components/sections/Contact").then(mod => mod.Contact));
 
+const ROICalculator = dynamic(() => import("@/components/sections/ROICalculator").then(mod => mod.ROICalculator));
+const TrustGrid = dynamic(() => import("@/components/sections/TrustGrid").then(mod => mod.TrustGrid));
+const VideoTestimonials = dynamic(() => import("@/components/sections/VideoTestimonials").then(mod => mod.VideoTestimonials));
+const LeadMagnet = dynamic(() => import("@/components/sections/LeadMagnet").then(mod => mod.LeadMagnet));
+
 export default function AIAgencyWebsite() {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -26,14 +31,18 @@ export default function AIAgencyWebsite() {
       <main>
         <Hero />
         <Marquee />
+        <TrustGrid />
         <Features />
         <Process />
         <ProofSection />
+        <ROICalculator />
         <CaseStudies />
         <LatestProducts />
         <Pricing />
         <Testimonials />
+        <VideoTestimonials />
         <FAQ />
+        <LeadMagnet />
         <Contact />
       </main>
       <Footer />

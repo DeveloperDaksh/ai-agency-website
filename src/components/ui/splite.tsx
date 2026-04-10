@@ -7,8 +7,10 @@ import dynamic from 'next/dynamic'
 const Spline = dynamic(() => import('@splinetool/react-spline'), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-full flex items-center justify-center">
-      <div className="w-8 h-8 border-4 border-orange-500 border-t-transparent rounded-full animate-spin"></div>
+    <div className="w-full h-full flex items-center justify-center p-8">
+      <div className="w-full h-full bg-orange-500/5 rounded-[3rem] animate-pulse border border-orange-500/10 flex items-center justify-center">
+        <div className="w-12 h-12 border-4 border-orange-500/20 border-t-orange-500 rounded-full animate-spin"></div>
+      </div>
     </div>
   )
 })

@@ -119,21 +119,24 @@ export default function RootLayout({
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Custom AI Chatbots"
+                      "name": "AI Strategy Consulting",
+                      "url": "https://saraswatistitch.com/services/ai-strategy-consulting"
                     }
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Process Automation"
+                      "name": "Custom AI Development",
+                      "url": "https://saraswatistitch.com/services/custom-ai-development"
                     }
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "AI Strategy Consulting"
+                      "name": "Workflow Automation",
+                      "url": "https://saraswatistitch.com/services/workflow-automation"
                     }
                   }
                 ]
@@ -144,6 +147,22 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} font-sans antialiased text-foreground bg-background transition-colors duration-300`}>
         {children}
+        {/* Live Chat Integration */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+              (function(){
+              var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+              s1.async=true;
+              s1.src='https://embed.tawk.to/65f464019131ed19d97a0ae8/1hp19j2d5';
+              s1.charset='UTF-8';
+              s1.setAttribute('crossorigin','*');
+              s0.parentNode.insertBefore(s1,s0);
+              })();
+            `
+          }}
+        />
       </body>
     </html>
   );

@@ -24,6 +24,12 @@ export interface CaseStudy {
     description: string;
     metrics: Array<{ label: string; value: string }>;
   };
+  techStackDetail?: string[];
+  timeline?: Array<{ phase: string, duration: string, task: string }>;
+  architecture?: {
+    description: string;
+    components: string[];
+  };
 }
 
 export const caseStudies: CaseStudy[] = [
@@ -35,6 +41,17 @@ export const caseStudies: CaseStudy[] = [
     description: "Deployed a RAG-based AI agent that resolves 70% of inbound queries without human intervention — saving 2,000+ hours monthly.",
     icon: TrendingUp,
     color: "from-blue-500 to-cyan-500",
+    techStackDetail: ["GPT-4o", "LangChain", "Pinecone", "Shopify API", "Next.js"],
+    timeline: [
+      { phase: "Audit", duration: "1 Week", task: "Mapping support bottlenecks and knowledge gap analysis." },
+      { phase: "Prototype", duration: "2 Weeks", task: "Building RAG engine and intent mapping." },
+      { phase: "Stitch", duration: "3 Weeks", task: "Integration with CRM and Shopify backend." },
+      { phase: "Optimization", duration: "Ongoing", task: "Human-in-the-loop fine-tuning." }
+    ],
+    architecture: {
+      description: "A secure, decoupled RAG architecture that allows for sub-second responses while maintaining strict data privacy.",
+      components: ["Knowledge Vector Store", "Intent Classifier", "Human Handoff Logic", "Secure Data Proxy"]
+    },
     challenge: {
       title: "Inundated with Support Tickets",
       description: "Global Retail Co. faced a massive challenge with their customer support system being overwhelmed by high-volume, low-complexity queries.",
@@ -74,6 +91,16 @@ export const caseStudies: CaseStudy[] = [
     description: "Built an ML forecasting model that predicts inventory demand with 94% accuracy across 12 global warehouses.",
     icon: Clock,
     color: "from-orange-500 to-red-500",
+    techStackDetail: ["Scikit-learn", "TensorFlow", "FastAPI", "AWS Redshift", "Tableau"],
+    timeline: [
+      { phase: "Deep Audit", duration: "2 Weeks", task: "Historical data cleanup and feature engineering." },
+      { phase: "Model Build", duration: "4 Weeks", task: "Developing custom XGBoost forecasting models." },
+      { phase: "Integration", duration: "2 Weeks", task: "Connecting to procurement ERP systems." }
+    ],
+    architecture: {
+      description: "High-throughput predictive engine processing 50+ real-time variables.",
+      components: ["Feature Store", "Inference Engine", "Procurement Logic", "Risk Dashboard"]
+    },
     challenge: {
       title: "Inventory Blind Spots",
       description: "LogiTech Solutions suffered from severe inventory imbalances—overstock in regional hubs and stockouts in key markets.",
@@ -113,6 +140,16 @@ export const caseStudies: CaseStudy[] = [
     description: "Created a generative AI pipeline that transforms raw video into social posts, blog articles, and email campaigns — autonomously.",
     icon: Sparkles,
     color: "from-purple-500 to-pink-500",
+    techStackDetail: ["Whisper-v3", "Claude 3.5 Sonnet", "FFmpeg", "Vercel", "Supabase"],
+    timeline: [
+      { phase: "Vocal Blueprint", duration: "1 Week", task: "Mapping brand voice and persona constraints." },
+      { phase: "Pipeline Build", duration: "3 Weeks", task: "Building automated video processing and transcription workflows." },
+      { phase: "Distribution Stitch", duration: "2 Weeks", task: "Integrating with Buffer and WordPress APIs." }
+    ],
+    architecture: {
+      description: "A generative multi-modal pipeline that handles everything from audio transcription to image generation.",
+      components: ["Media Parser", "Context Extractor", "Format Tailor", "Publisher"]
+    },
     challenge: {
       title: "Content Bottlenecks",
       description: "MediaFlow Inc. was rich in video assets but slow to repurpose them for modern multi-channel marketing campaigns.",

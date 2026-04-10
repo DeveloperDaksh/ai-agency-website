@@ -164,10 +164,10 @@ export const ProofSection = () => {
           </div>
 
           <div className="grid grid-cols-2 gap-10 text-center bg-muted/30 p-12 rounded-3xl border border-white/5 dark:border-white/5 backdrop-blur-md">
-            <StatItem value={150} suffix="+" label="Projects Shipped" delay={0.1} />
-            <StatItem value={20} suffix="+" label="Industries Served" delay={0.2} />
-            <StatItem value={98} suffix="%" label="Client Satisfaction" delay={0.3} />
-            <StatItem value={500} suffix="+" label="AI Models Deployed" delay={0.4} />
+            <StatItem value={25} suffix="+" label="Projects Shipped" delay={0.1} />
+            <StatItem value={12} suffix="+" label="Industries Served" delay={0.2} />
+            <StatItem value={98} suffix="%" label="Success Rate" delay={0.3} />
+            <StatItem value={50} suffix="+" label="AI Models Deployed" delay={0.4} />
           </div>
         </div>
       </div>

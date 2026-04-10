@@ -9,7 +9,7 @@ export const Marquee = () => {
     <section className="py-16 border-y border-white/5 dark:border-white/5 bg-muted/20 relative overflow-hidden">
       <div className="container mx-auto px-4 mb-8">
         <p className="text-center text-xs font-bold text-muted-foreground uppercase tracking-[0.2em]">
-          Powered by the World&apos;s Leading AI Platforms
+          Trusted by Industry Leaders & Powered by Elite AI
         </p>
       </div>
       <div className="flex overflow-hidden">
