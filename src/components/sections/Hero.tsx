@@ -3,6 +3,7 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import { Sparkles, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Spotlight } from "@/components/ui/spotlight";
@@ -47,9 +48,9 @@ export const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.1 }}
               style={{ transform: "translateZ(50px)" }}
-              className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-8 bg-gradient-to-r from-foreground via-orange-500 to-foreground bg-clip-text text-transparent leading-[1.1] tracking-tight"
+              className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-8 bg-gradient-to-r from-foreground via-orange-500 to-foreground bg-clip-text text-transparent leading-[1.1] tracking-tight"
             >
-              {"Build Smarter. Scale Faster. Automate Everything.".split(" ").map((word, i) => (
+              {"Intelligent AI. Seamlessly Stitched.".split(" ").map((word, i) => (
                 <motion.span
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
@@ -84,17 +85,17 @@ export const Hero = () => {
               style={{ transform: "translateZ(35px)" }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <a href="#contact">
+              <Link href="/contact">
                 <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white rounded-full px-8 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all">
-                  Book a Free Strategy Call
+                  Book Strategy Call
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-              </a>
-              <a href="#pricing">
+              </Link>
+              <Link href="/products">
                 <Button size="lg" variant="outline" className="rounded-full px-8 border-border/50 hover:border-orange-500/30">
-                  View Pricing
+                  Search AI Tools
                 </Button>
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
 

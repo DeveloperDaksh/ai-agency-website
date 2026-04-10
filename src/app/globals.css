@@ -168,6 +168,15 @@ html {
 }
 
 /* ===== FLOATING PARTICLE KEYFRAMES ===== */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-shimmer {
+  animation: shimmer 2.5s infinite;
+}
+
 @keyframes float-particle {
   0%, 100% {
     transform: translateY(0px) translateX(0px);
@@ -199,3 +208,4 @@ html {
     transform: translateY(-30vh) translateX(-15px);
   }
 }
+

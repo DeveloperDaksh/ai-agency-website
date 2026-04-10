@@ -13,6 +13,7 @@ const Features = dynamic(() => import("@/components/sections/Features").then(mod
 const Process = dynamic(() => import("@/components/sections/Process").then(mod => mod.Process));
 const ProofSection = dynamic(() => import("@/components/sections/ProofSection").then(mod => mod.ProofSection));
 const CaseStudies = dynamic(() => import("@/components/sections/CaseStudies").then(mod => mod.CaseStudies));
+const LatestProducts = dynamic(() => import("@/components/sections/LatestProducts").then(mod => mod.LatestProducts));
 const Pricing = dynamic(() => import("@/components/sections/Pricing").then(mod => mod.Pricing));
 const Testimonials = dynamic(() => import("@/components/sections/Testimonials").then(mod => mod.Testimonials));
 const FAQ = dynamic(() => import("@/components/sections/FAQ").then(mod => mod.FAQ));
@@ -29,6 +30,7 @@ export default function AIAgencyWebsite() {
         <Process />
         <ProofSection />
         <CaseStudies />
+        <LatestProducts />
         <Pricing />
         <Testimonials />
         <FAQ />

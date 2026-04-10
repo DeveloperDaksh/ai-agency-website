@@ -3,6 +3,7 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Brain, Sun, Moon, ArrowRight, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -31,16 +32,49 @@ export const Navbar = () => {
     <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
-              <Brain className="w-5 h-5 text-white" />
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative">
+              {/* Outer Glow Ring */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
+              
+              <div className="relative w-10 h-10 bg-black border border-white/10 rounded-xl flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-110 group-active:scale-95">
+                {/* Background Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-transparent" />
+                
+                {/* Animated Logo Icon */}
+                <motion.div
+                  animate={{ 
+                    rotate: [0, 5, -5, 0],
+                    scale: [1, 1.05, 1]
+                  }}
+                  transition={{ 
+                    duration: 4, 
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  <Brain className="w-6 h-6 text-orange-500" />
+                </motion.div>
+
+                {/* Shimmer Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
+              </div>
             </div>
-            <span className="text-xl font-bold">Saraswati Stitch</span>
-          </div>
+            
+            <div className="flex flex-col">
+              <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-white via-white to-orange-500/50 bg-clip-text text-transparent group-hover:text-orange-500 transition-colors">
+                Saraswati Stitch
+              </span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-orange-500/60 -mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                AI Orchestration
+              </span>
+            </div>
+          </Link>
           
           <div className="hidden md:flex items-center gap-8">
             <a href="/services" className="text-sm hover:text-orange-500 transition-colors">Services</a>
             <a href="/pricing" className="text-sm hover:text-orange-500 transition-colors">Pricing</a>
+            <a href="/products" className="text-sm hover:text-orange-500 transition-colors">Products</a>
             <a href="/case-studies" className="text-sm hover:text-orange-500 transition-colors">Case Studies</a>
             <a href="/faq" className="text-sm hover:text-orange-500 transition-colors">FAQ</a>
             
@@ -79,6 +113,7 @@ export const Navbar = () => {
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
             <a href="/services" className="text-sm hover:text-orange-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Services</a>
             <a href="/pricing" className="text-sm hover:text-orange-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Pricing</a>
+            <a href="/products" className="text-sm hover:text-orange-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Products</a>
             <a href="/case-studies" className="text-sm hover:text-orange-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Case Studies</a>
             <a href="/faq" className="text-sm hover:text-orange-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>FAQ</a>
             

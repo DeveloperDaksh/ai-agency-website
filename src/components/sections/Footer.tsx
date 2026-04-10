@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { Brain } from "lucide-react";
+import Link from "next/link";
 
 export const Footer = () => {
   return (
@@ -9,12 +10,12 @@ export const Footer = () => {
       <div className="container mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
+            <Link href="/" className="flex items-center gap-2 mb-4 group">
+              <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Brain className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold">Saraswati Stitch</span>
-            </div>
+              <span className="text-xl font-bold group-hover:text-orange-500 transition-colors">Saraswati Stitch</span>
+            </Link>
             <p className="text-sm text-muted-foreground">
               Transforming businesses with ROI-driven AI and custom software solutions.
             </p>
@@ -23,6 +24,7 @@ export const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4 text-foreground">Services</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><a href="/products" className="hover:text-orange-500 transition-colors">AI Products</a></li>
               <li><a href="/services/ai-strategy-consulting" className="hover:text-orange-500 transition-colors">AI Strategy</a></li>
               <li><a href="/services/custom-ai-development" className="hover:text-orange-500 transition-colors">Custom AI Development</a></li>
               <li><a href="/services/workflow-automation" className="hover:text-orange-500 transition-colors">Workflow Automation</a></li>
