@@ -8,29 +8,38 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AI Agency | Custom AI Automation & Software Solutions for Business",
-  description: "Bespoke AI solutions, intelligent automation, and custom software development. Transform your business efficiency with our ROI-driven AI agency solutions.",
-  keywords: ["AI Automation", "Custom AI Software", "Business Automation", "AI Consulting", "Enterprise AI Solutions", "Intelligent Workflows"],
-  authors: [{ name: "AI Agency Team" }],
+  title: "Saraswati Stitch | AI Automation & Custom Software Development",
+  description: "Saraswati Stitch designs and deploys custom AI systems, workflow automation, and intelligent software solutions that eliminate busywork and accelerate revenue.",
+  keywords: ["AI Automation", "Custom AI Software", "Business Automation", "AI Consulting", "Enterprise AI Solutions", "Intelligent Workflows", "Saraswati Stitch"],
+  authors: [{ name: "Saraswati Stitch Team" }],
   openGraph: {
-    title: "AI Agency | Custom AI Automation & Software Solutions",
-    description: "Bespoke AI solutions and custom software for modern businesses. Transform your efficiency with ROI-driven AI.",
-    url: "https://ai-agency-solutions.com",
-    siteName: "AI Agency",
+    title: "Saraswati Stitch | AI Automation & Custom Software Development",
+    description: "Saraswati Stitch designs and deploys custom AI systems, workflow automation, and intelligent software solutions that eliminate busywork and accelerate revenue.",
+    url: "https://saraswatistitch.com",
+    siteName: "Saraswati Stitch",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "https://saraswatistitch.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Saraswati Stitch | AI Automation & Custom Software Development",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Agency | Custom AI Automation & Software Solutions",
-    description: "Bespoke AI solutions and custom software for modern businesses.",
+    title: "Saraswati Stitch | AI Automation & Custom Software Development",
+    description: "Saraswati Stitch designs and deploys custom AI systems, workflow automation, and intelligent software solutions that eliminate busywork and accelerate revenue.",
+    images: ["https://saraswatistitch.com/og-image.png"],
   },
   robots: {
     index: true,
     follow: true,
   },
   alternates: {
-    canonical: "https://ai-agency-solutions.com",
+    canonical: "https://saraswatistitch.com",
   },
 };
 
@@ -48,6 +57,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning={true}>
       <head>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -69,14 +80,22 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "AI Agency",
-              "url": "https://ai-agency-solutions.com",
-              "logo": "https://ai-agency-solutions.com/logo.png",
-              "description": "Bespoke AI solutions and custom software for modern businesses.",
+              "name": "Saraswati Stitch",
+              "url": "https://saraswatistitch.com",
+              "logo": "https://saraswatistitch.com/logo.png",
+              "description": "AI automation and custom software development agency specializing in intelligent workflow automation, AI chatbots, and enterprise AI solutions.",
+              "email": "hello@saraswatistitch.com",
+              "foundingDate": "2024",
               "sameAs": [
-                "https://twitter.com/aiagency",
-                "https://linkedin.com/company/aiagency"
-              ]
+                "https://linkedin.com/company/saraswatistitch",
+                "https://twitter.com/saraswatistitch",
+                "https://github.com/saraswatistitch"
+              ],
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "Global"
+              },
+              "areaServed": "Worldwide"
             })
           }}
         />
@@ -89,7 +108,7 @@ export default function RootLayout({
               "serviceType": "AI Automation & Software Development",
               "provider": {
                 "@type": "Organization",
-                "name": "AI Agency"
+                "name": "Saraswati Stitch"
               },
               "areaServed": "Worldwide",
               "hasOfferCatalog": {
@@ -108,6 +127,13 @@ export default function RootLayout({
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Process Automation"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "AI Strategy Consulting"
                     }
                   }
                 ]

@@ -35,14 +35,14 @@ export const Navbar = () => {
             <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
               <Brain className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl font-bold">AI Agency</span>
+            <span className="text-xl font-bold">Saraswati Stitch</span>
           </div>
           
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm hover:text-orange-500 transition-colors">Features</a>
-            <a href="#pricing" className="text-sm hover:text-orange-500 transition-colors">Pricing</a>
-            <a href="#testimonials" className="text-sm hover:text-orange-500 transition-colors">Testimonials</a>
-            <a href="#faq" className="text-sm hover:text-orange-500 transition-colors">FAQ</a>
+            <a href="/services" className="text-sm hover:text-orange-500 transition-colors">Services</a>
+            <a href="/pricing" className="text-sm hover:text-orange-500 transition-colors">Pricing</a>
+            <a href="/case-studies" className="text-sm hover:text-orange-500 transition-colors">Case Studies</a>
+            <a href="/faq" className="text-sm hover:text-orange-500 transition-colors">FAQ</a>
             
             <Button
               variant="ghost"
@@ -57,7 +57,7 @@ export const Navbar = () => {
               )}
             </Button>
 
-            <a href="#contact">
+            <a href="/contact">
               <Button className="bg-orange-500 hover:bg-orange-600 rounded-full px-6 shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 transition-all">
                 Get Started
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -77,10 +77,10 @@ export const Navbar = () => {
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-border bg-background">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
-            <a href="#features" className="text-sm hover:text-orange-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Features</a>
-            <a href="#pricing" className="text-sm hover:text-orange-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Pricing</a>
-            <a href="#testimonials" className="text-sm hover:text-orange-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Testimonials</a>
-            <a href="#faq" className="text-sm hover:text-orange-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>FAQ</a>
+            <a href="/services" className="text-sm hover:text-orange-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Services</a>
+            <a href="/pricing" className="text-sm hover:text-orange-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Pricing</a>
+            <a href="/case-studies" className="text-sm hover:text-orange-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Case Studies</a>
+            <a href="/faq" className="text-sm hover:text-orange-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>FAQ</a>
             
             <div className="flex items-center justify-between py-2 border-t border-border mt-2">
               <span className="text-sm font-medium">Dark Mode</span>
@@ -98,7 +98,7 @@ export const Navbar = () => {
               </Button>
             </div>
 
-            <a href="#contact" onClick={() => setMobileMenuOpen(false)}>
+            <a href="/contact" onClick={() => setMobileMenuOpen(false)}>
               <Button className="w-full bg-orange-500 hover:bg-orange-600 rounded-full">Get Started</Button>
             </a>
           </div>

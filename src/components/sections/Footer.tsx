@@ -13,45 +13,45 @@ export const Footer = () => {
               <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
                 <Brain className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold">AI Agency</span>
+              <span className="text-xl font-bold">Saraswati Stitch</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Transforming businesses with AI and custom software solutions.
+              Transforming businesses with ROI-driven AI and custom software solutions.
             </p>
           </div>
 
           <div>
             <h4 className="font-semibold mb-4 text-foreground">Services</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-orange-500 transition-colors">AI Consultation</a></li>
-              <li><a href="#" className="hover:text-orange-500 transition-colors">Custom Development</a></li>
-              <li><a href="#" className="hover:text-orange-500 transition-colors">Automation</a></li>
-              <li><a href="#" className="hover:text-orange-500 transition-colors">Integration</a></li>
+              <li><a href="/services/ai-strategy-consulting" className="hover:text-orange-500 transition-colors">AI Strategy</a></li>
+              <li><a href="/services/custom-ai-development" className="hover:text-orange-500 transition-colors">Custom AI Development</a></li>
+              <li><a href="/services/workflow-automation" className="hover:text-orange-500 transition-colors">Workflow Automation</a></li>
+              <li><a href="/services/rapid-deployment" className="hover:text-orange-500 transition-colors">Rapid Deployment</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-semibold mb-4 text-foreground">Company</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-orange-500 transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-orange-500 transition-colors">Case Studies</a></li>
-              <li><a href="#" className="hover:text-orange-500 transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-orange-500 transition-colors">Careers</a></li>
+              <li><a href="/about" className="hover:text-orange-500 transition-colors">About Us</a></li>
+              <li><a href="/case-studies" className="hover:text-orange-500 transition-colors">Case Studies</a></li>
+              <li><a href="/blog" className="hover:text-orange-500 transition-colors">Blog</a></li>
+              <li><a href="/careers" className="hover:text-orange-500 transition-colors">Careers</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-semibold mb-4 text-foreground">Legal</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-orange-500 transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-orange-500 transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-orange-500 transition-colors">Cookie Policy</a></li>
+              <li><a href="/privacy-policy" className="hover:text-orange-500 transition-colors">Privacy Policy</a></li>
+              <li><a href="/terms-of-service" className="hover:text-orange-500 transition-colors">Terms of Service</a></li>
+              <li><a href="/cookie-policy" className="hover:text-orange-500 transition-colors">Cookie Policy</a></li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} AI Agency. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Saraswati Stitch. All rights reserved.</p>
         </div>
       </div>
     </footer>

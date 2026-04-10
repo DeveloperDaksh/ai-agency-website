@@ -130,7 +130,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 <p className="text-xs text-muted-foreground italic leading-relaxed mb-6">
                   "{study.results.description}"
                 </p>
-                <Link href="/#contact">
+                <Link href="/contact">
                   <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white rounded-xl py-6 font-bold shadow-lg shadow-orange-500/20 group">
                     Scale Your Business
                     <ArrowLeft className="w-4 h-4 ml-2 rotate-180 transition-transform group-hover:translate-x-1" />
@@ -171,13 +171,13 @@ export default async function CaseStudyPage({ params }: PageProps) {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                <Link href="/#contact">
+                <Link href="/contact">
                   <Button className="w-full sm:w-auto bg-orange-600 hover:bg-orange-700 text-white rounded-2xl px-10 py-8 text-lg font-bold shadow-2xl shadow-orange-500/20 transform hover:scale-[1.05] active:scale-95 transition-all group/btn">
                     Book Discovery Call
                     <Zap className="w-5 h-5 ml-3 fill-white" />
                   </Button>
                 </Link>
-                <Link href="/">
+                <Link href="/services">
                   <Button variant="outline" className="w-full sm:w-auto border-white/10 bg-white/5 hover:bg-white/10 text-white rounded-2xl px-10 py-8 text-lg font-bold backdrop-blur-md transition-all">
                     Explore Services
                   </Button>
@@ -190,7 +190,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
       {/* Footer minimal */}
       <footer className="border-t border-white/5 py-12 flex items-center justify-center text-muted-foreground text-xs uppercase tracking-widest">
-        &copy; {new Date().getFullYear()} AI AGENCY. All Rights Reserved.
+        &copy; {new Date().getFullYear()} Saraswati Stitch. All Rights Reserved.
       </footer>
     </div>
   );

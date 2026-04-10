@@ -1,4 +1,12 @@
+# Robots.txt for Saraswati Stitch
 User-agent: *
 Allow: /
 
-Sitemap: https://ai-agency-solutions.com/sitemap.xml
+# Sitemap location
+Sitemap: https://saraswatistitch.com/sitemap.xml
+
+# Block admin/private areas (if any)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
