@@ -1,7 +1,7 @@
 "use server";
 
 import { z } from "zod";
-import { db } from "@/lib/firebase";
+import { db, initError } from "@/lib/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 const contactSchema = z.object({
@@ -29,10 +29,10 @@ export async function subscribeToNewsletter(prevState: MessageState, formData: F
 
   try {
     if (!db) {
-      console.error("❌ Firestore 'db' is not initialized in server action.");
+      console.error("❌ Firestore 'db' is not initialized in server action:", initError);
       return {
         success: false,
-        message: "Database initialization failed. Please try again later.",
+        message: initError || "Database initialization failed. Please ensure environment variables are set.",
       };
     }
 
@@ -51,7 +51,7 @@ export async function subscribeToNewsletter(prevState: MessageState, formData: F
     console.error("❌ Error subscribing to newsletter:", err);
     return {
       success: false,
-      message: "Something went wrong. Please try again.",
+      message: err instanceof Error ? `Error: ${err.message}` : "Something went wrong. Please try again.",
     };
   }
 }
@@ -89,10 +89,10 @@ export async function submitContact(prevState: ContactState, formData: FormData)
   // Handle successful submission
   try {
     if (!db) {
-      console.error("❌ Firestore 'db' is not initialized in server action.");
+      console.error("❌ Firestore 'db' is not initialized in server action:", initError);
       return {
         success: false,
-        message: "Server error: Database not initialized. Please try again later.",
+        message: initError || "Server error: Database not initialized. Please ensure environment variables are set.",
       };
     }
 
