@@ -1,24 +1,26 @@
 "use client";
 
 import * as React from "react";
-import { useState } from "react";
+import { useState, useActionState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, CheckCircle2, FileText, ArrowRight, Sparkles, X } from "lucide-react";
+import { Download, CheckCircle2, FileText, ArrowRight, Sparkles, AlertCircle } from "lucide-react";
 import { GlowContainer } from "@/components/ui/glow-container";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { subscribeToNewsletter, MessageState } from "@/app/actions";
 
 export const LeadMagnet = () => {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  
+  const initialState: MessageState = { success: false };
+  const [state, formAction, isPending] = useActionState(subscribeToNewsletter, initialState);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
+  useEffect(() => {
+    if (state.success) {
       setIsSubmitted(true);
-      // Here you would typically send the email to your backend/API
     }
-  };
+  }, [state.success]);
 
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8">
@@ -70,18 +72,30 @@ export const LeadMagnet = () => {
                     <h3 className="text-2xl font-bold mb-4">Get the Blueprint</h3>
                     <p className="text-muted-foreground mb-8">Where should we send your copy?</p>
                     
-                    <form onSubmit={handleSubmit} className="space-y-4">
+                    <form action={formAction} className="space-y-4">
                       <Input 
                         type="email" 
+                        name="email"
                         placeholder="your@email.com" 
                         required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="h-14 rounded-2xl bg-white/5 border-white/10 px-6 font-medium text-lg focus:border-orange-500/50 transition-all"
+                        disabled={isPending}
+                        className="h-14 rounded-2xl bg-white/5 border-white/10 px-6 font-medium text-lg focus:border-orange-500/50 transition-all disabled:opacity-50"
                       />
-                      <Button className="w-full h-14 rounded-2xl bg-orange-500 hover:bg-orange-600 font-bold text-lg group">
-                        Send Me The Link
-                        <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-2" />
+                      {state.message && !state.success && (
+                        <div className="flex items-center gap-2 text-red-500 text-sm font-medium ml-2">
+                          <AlertCircle className="w-4 h-4" />
+                          {state.message}
+                        </div>
+                      )}
+                      <Button 
+                        type="submit"
+                        disabled={isPending}
+                        className="w-full h-14 rounded-2xl bg-orange-500 hover:bg-orange-600 font-bold text-lg group"
+                      >
+                        {isPending ? "Sending..." : "Send Me The Link"}
+                        {!isPending && <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-2" />}
                       </Button>
                     </form>
                     <p className="text-[10px] text-center text-muted-foreground mt-6 uppercase font-bold tracking-widest leading-loose">
@@ -104,7 +118,10 @@ export const LeadMagnet = () => {
                     </p>
                     <Button 
                       variant="secondary" 
-                      onClick={() => setIsSubmitted(false)}
+                      onClick={() => {
+                        setIsSubmitted(false);
+                        setEmail("");
+                      }}
                       className="rounded-xl h-12 px-8 font-bold text-orange-500 hover:bg-white transition-all"
                     >
                       Wait, send to another email instead

@@ -1,6 +1,8 @@
 "use server";
 
 import { z } from "zod";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 const contactSchema = z.object({
   firstName: z.string().min(2, "First name must be at least 2 characters").max(50, "First name is too long"),
@@ -8,6 +10,51 @@ const contactSchema = z.object({
   email: z.string().email("Please provide a valid email address"),
   message: z.string().min(10, "Message must be at least 10 characters").max(1000, "Message is too long")
 });
+
+export type MessageState = {
+  success: boolean;
+  message?: string;
+  errors?: Record<string, string[]>;
+};
+
+export async function subscribeToNewsletter(prevState: MessageState, formData: FormData): Promise<MessageState> {
+  const email = formData.get("email") as string;
+
+  if (!email || !z.string().email().safeParse(email).success) {
+    return {
+      success: false,
+      message: "Please provide a valid email address.",
+    };
+  }
+
+  try {
+    if (!db) {
+      console.error("❌ Firestore 'db' is not initialized in server action.");
+      return {
+        success: false,
+        message: "Database initialization failed. Please try again later.",
+      };
+    }
+
+    console.log("Adding newsletter subscriber:", email);
+    await addDoc(collection(db, "newsletter_subscribers"), {
+      email,
+      timestamp: serverTimestamp(),
+      source: "lead_magnet_v2"
+    });
+    
+    return {
+      success: true,
+      message: "Success! Check your inbox for the blueprint.",
+    };
+  } catch (err) {
+    console.error("❌ Error subscribing to newsletter:", err);
+    return {
+      success: false,
+      message: "Something went wrong. Please try again.",
+    };
+  }
+}
 
 export type ContactState = {
   success: boolean;
@@ -40,8 +87,30 @@ export async function submitContact(prevState: ContactState, formData: FormData)
   }
 
   // Handle successful submission
-  // In a real application, you would save to a DB or send an email here
-  console.log("Validated Form Data:", validatedFields.data);
+  try {
+    if (!db) {
+      console.error("❌ Firestore 'db' is not initialized in server action.");
+      return {
+        success: false,
+        message: "Server error: Database not initialized. Please try again later.",
+      };
+    }
+
+    console.log("Saving contact submission to Firestore...");
+    await addDoc(collection(db, "contact_submissions"), {
+      ...validatedFields.data,
+      timestamp: serverTimestamp(),
+      source: "contact_form"
+    });
+    console.log("✅ Contact submission saved to Firestore successfully");
+  } catch (err) {
+    console.error("❌ Error saving contact submission:", err);
+    const errorMessage = err instanceof Error ? err.message : "Internal error";
+    return {
+      success: false,
+      message: `Failed to save message: ${errorMessage}. Please try again.`,
+    };
+  }
 
   return {
     success: true,
